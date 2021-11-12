@@ -1,0 +1,16 @@
+.background_img{
+    background-image: url(https://demo.vehica.com/wp-content/uploads/2020/08/header.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 200px 0;
+}
+.btn-primary{
+    color: white;
+    background: orangered;
+    padding: 10px 20px;
+}
+.hero-card{
+    background: white;
+    border-radius: 20px;
+    padding: 40px 5px;
+}
