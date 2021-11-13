@@ -26,13 +26,11 @@ const Header = () => {
                     </li>
                         {user?.email ?
                             
-                            <div className="d-flex flex-sm-column px-2 mx-auto">
+                            <div className="d-flex px-2 mx-auto">
                                 <li class="nav-item mx-1">
-                                    <Link className="d-block" style={{ textDecoration: 'none', color: 'black' }} to="/dashBoard">DashBoard</Link>
+                                    <Link style={{ textDecoration: 'none', color: 'black' }} to="/dashBoard">DashBoard</Link>
                                 </li>
-                                <li className="nav-item">
-                                    <button className="d-block" variant="contained" onClick={logout}>logout</button>
-                                </li>
+                                <Button variant="contained" onClick={logout}>logout</Button>
                             </div>:
                             <li class="nav-item">
                             <Link style={{textDecoration:'none',color:'black'}} to="/login">Login</Link>
