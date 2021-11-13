@@ -4,7 +4,7 @@ import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow
 const MangeAllOrder = () => {
     const [userOrders, setUserOrders] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/bookedCar")
+    fetch("https://arcane-plains-61591.herokuapp.com/bookedCar")
       .then((res) => res.json())
       .then((data) => setUserOrders(data));
   }, []);
@@ -12,7 +12,7 @@ const MangeAllOrder = () => {
     const proceed = window.confirm("Are you sure, you want to delete?", id);
       console.log(id);
     if (proceed) {
-      const url = `http://localhost:5000/bookedCar/${id}`;
+      const url = `https://arcane-plains-61591.herokuapp.com/bookedCar/${id}`;
       fetch(url, {
         method: "DELETE",
       })
@@ -31,7 +31,7 @@ const MangeAllOrder = () => {
   };
 
   const handleUpdateUser = (id) => {
-    const url = `http://localhost:5000/usersOrder/${id}`;
+    const url = `https://arcane-plains-61591.herokuapp.com/usersOrder/${id}`;
     fetch(url, {
       method: "PUT",
       headers: {
@@ -44,16 +44,15 @@ const MangeAllOrder = () => {
           alert("Update Successful");
         }
         console.log(data);
-        fetch("http://localhost:5000/usersOrders")
+        fetch("https://arcane-plains-61591.herokuapp.com/usersOrders")
           .then((res) => res.json())
           .then((data) => setUserOrders(data));
       });
   };
       return (
         <>
-            <TableContainer component={Paper}>
+            <TableContainer style={{width:'100%'}} component={Paper}>
             <Table
-              // sx={{ minWidth: 650 }}
               aria-label="simple table">
                     <TableHead>
                     <TableRow>
@@ -77,7 +76,7 @@ const MangeAllOrder = () => {
                         <TableCell align="right">{row.serviceName}</TableCell>
                         <TableCell align="right">${row.servicePrice}</TableCell>
                         <TableCell align="right">
-                          {row.condition?<button
+                          {(row.condition==="shipped")?<button
                             
                             className="btn-Car me-3"
                           >Shipped</button>
@@ -86,7 +85,8 @@ const MangeAllOrder = () => {
                             className="btn-Car me-3"
                           >Pending</button>}
                             <button
-                                className="btn-Car"
+                            className="btn-Car"
+                            onClick={()=>handleDeleteUserService(row._id)}
                             >
                                 <i class="fas fa-times"></i>
                             </button>    

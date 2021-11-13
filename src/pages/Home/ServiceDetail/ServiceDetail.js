@@ -8,7 +8,7 @@ const ServiceDetail = () => {
     const { id } = useParams();
     const [service, setService] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/allProduct`)
+        fetch(`https://arcane-plains-61591.herokuapp.com/allProduct`)
             .then(res => res.json())
             .then(data => setService(data))
     }, [])
@@ -35,7 +35,7 @@ const ServiceDetail = () => {
             servicePrice: ExactItem[0]?.price,
         }
         // send to the server
-        fetch('http://localhost:5000/bookedCar', {
+        fetch('https://arcane-plains-61591.herokuapp.com/bookedCar', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

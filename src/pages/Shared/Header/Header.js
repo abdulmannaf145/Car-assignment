@@ -2,6 +2,7 @@ import { Button } from '@mui/material';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
+import logo from '../../../images/white-suv.jpg'
 
 const Header = () => {
         const { user, logout } = useAuth();
@@ -9,7 +10,9 @@ const Header = () => {
     return (
        <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container">
-                <Link style={{textDecoration:'none',color:'black'}} to="/home">Navbar</Link>
+                <Link style={{ textDecoration: 'none', color: 'black' }} to="/home">
+                    <img style={{width:'100px'}} src={logo} alt="" />
+                </Link>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
                 </button>
@@ -23,7 +26,7 @@ const Header = () => {
                     </li>
                         {user?.email ?
                             
-                            <div className="d-flex px-2">
+                            <div className="d-flex px-2 mx-auto">
                                 <li class="nav-item mx-1">
                                     <Link style={{ textDecoration: 'none', color: 'black' }} to="/dashBoard">DashBoard</Link>
                                 </li>

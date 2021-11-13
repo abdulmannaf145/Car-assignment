@@ -13,7 +13,6 @@ const Review = () => {
     role: "client",
     clientsName: user.displayName,
     email: user.email,
-    phone: "",
     address: "",
   };
   const [value, setValue] = useState(0);
@@ -33,7 +32,7 @@ const Review = () => {
       rating: value
     };
     // send to the server
-    fetch("http://localhost:5000/review", {
+    fetch("https://arcane-plains-61591.herokuapp.com/review", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -43,7 +42,7 @@ const Review = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.insertedId) {
-          window.alert("Order SuccessFull ");
+          window.alert("Review SuccessFull ");
         }
       });
 
@@ -103,16 +102,17 @@ const Review = () => {
                   size="small"
                   /> <br />
                   <Rating
-            name="rating"
-            value={value}
-            precision={0.5}
-            onChange={(event, newValue) => {
-              setValue(newValue);
-            }}
-            emptyIcon={
-              <StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />
-            }
-          /> <br />
+                  name="rating"
+                  value={value}
+                  precision={0.5}
+                  onChange={(event, newValue) => {
+                  setValue(newValue);
+                  }}
+                  emptyIcon={
+                  <StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />
+                  }
+                  />
+                  <br />
 
                 <button type="submit" className="btn-Car">
                   Submit

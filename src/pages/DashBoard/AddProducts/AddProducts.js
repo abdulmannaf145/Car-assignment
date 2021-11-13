@@ -7,7 +7,7 @@ const AddProducts = () => {
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = (data) => {
     axios
-      .post("http://localhost:5000/allProduct", data)
+      .post("https://arcane-plains-61591.herokuapp.com/allProduct", data)
       .then((res) => {
         if (res.data.insertedId) {
           alert("Add Successfull");

@@ -1,6 +1,7 @@
 import React from 'react';
 import Services from '../Services/Services';
 import ShowReview from '../ShowReview/ShowReview';
+import Subscribe from '../Subscribe/Subscribe';
 import './Home.css'
 
 const Home = () => {
@@ -27,6 +28,7 @@ const Home = () => {
             </div>
             <Services/>
             <ShowReview/>
+            <Subscribe/>
         </>
             );
 };

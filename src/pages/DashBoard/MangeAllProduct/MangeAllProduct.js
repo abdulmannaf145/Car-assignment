@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 const MangeAllProduct = () => {
      const [allService, setAllService] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/allProduct')
+        fetch('https://arcane-plains-61591.herokuapp.com/allProduct')
             .then(res => res.json())
             .then(data => setAllService(data))
     }, []);
@@ -11,7 +11,7 @@ const MangeAllProduct = () => {
       console.log(id)
     const proceed = window.confirm("Are you sure, you want to delete?", id);
     if (proceed) {
-      const url =  `http://localhost:5000/allProduct/${id}`;
+      const url =  `https://arcane-plains-61591.herokuapp.com/allProduct/${id}`;
       console.log(url);
       fetch(url, {
         method: "DELETE",

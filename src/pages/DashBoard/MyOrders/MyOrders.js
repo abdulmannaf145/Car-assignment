@@ -7,7 +7,7 @@ const MyOrders = () => {
      const { user, token } = useAuth();
   const [userOrders, setUserOrders] = useState([]);
   useEffect(() => {
-    const url = `http://localhost:5000/usersOrder?email=${user.email}`;
+    const url = `https://arcane-plains-61591.herokuapp.com/usersOrder?email=${user.email}`;
     fetch(url, {
       headers: {
         authorization: `Bearer ${token}`,
@@ -20,7 +20,7 @@ const MyOrders = () => {
   const handleDeleteUserService = (id) => {
     const proceed = window.confirm("Are you sure, you want to delete?", id);
     if (proceed) {
-      const url = `http://localhost:5000/usersOrder/${id}`;
+      const url = `https://arcane-plains-61591.herokuapp.com/usersOrder/${id}`;
       fetch(url, {
         method: "DELETE",
       })
@@ -48,6 +48,7 @@ const MyOrders = () => {
               <TableCell align="canter">Money</TableCell>
               <TableCell align="canter">Name</TableCell>
               <TableCell align="canter">My Email</TableCell>
+              <TableCell align="canter">Condition</TableCell>
               <TableCell align="canter">Action</TableCell>
             </TableRow>
           </TableHead>
@@ -63,6 +64,16 @@ const MyOrders = () => {
                 <TableCell align="canter">{row.servicePrice}</TableCell>
                 <TableCell align="canter">{row.clientsName}</TableCell>
                 <TableCell align="canter">{row.email}</TableCell>
+                <TableCell align="canter">
+                  {row.condition ? (
+                    <button className="btn-Car">
+                      <i class="fas fa-check"></i>
+                      {row.condition}
+                    </button>
+                  ) : (
+                    <button className="btn-Car-outline"> pending.. </button>
+                  )}
+                </TableCell>
                 <TableCell align="canter">
                   <button
                     onClick={() => handleDeleteUserService(row._id)}

@@ -6,18 +6,18 @@ import StarIcon from "@mui/icons-material/Star";
 const ShowReview = () => {
     const [showReview, setShowReview] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/review')
+        fetch('https://arcane-plains-61591.herokuapp.com/review')
         .then(res => res.json())
         .then(data=>setShowReview(data))
     },[])
     return (
-        <div className="container">
-            <h2>this is show review {showReview.length}</h2>
-            <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div className="container my-3">
+            <h2>This is Our Client Review.</h2>
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
                 {
                     showReview.map(review => <div class="col">
                     <div class="card h-100">
-                    <img src={review.userImg} class="card-img-top" alt="review-imges"/>
+                    <img  src={review.userImg} class="w-50 mx-auto card-img-top" alt="review-imges"/>
                     <div class="card-body">
                         <h5 class="card-title"><Rating
                               name="text-feedback"
@@ -31,7 +31,11 @@ const ShowReview = () => {
                                 />
                               }
                             /></h5>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                            <p class="card-text">Customer Name: {review.clientsName}</p>    
+                            <p class="card-text">
+                                Email:{review.email}
+                            </p>
+                            <p>{review.massage }</p>
                     </div>
                     <div class="card-footer">
                         <small class="text-muted">Last updated 3 mins ago</small>
