@@ -6,12 +6,6 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import MailIcon from '@mui/icons-material/Mail';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
@@ -30,11 +24,7 @@ import AddProducts from '../AddProducts/AddProducts';
 import Review from '../Review/Review';
 import AdminRoute from '../../Login/AdminRoute/AdminRoute';
 import MyOrders from '../MyOrders/MyOrders';
-// import DashboardHome from '../DashboardHome/DashboardHome';
-// import MakeAdmin from '../MakeAdmin/MakeAdmin';
-// import AddDoctor from '../AddDoctor/AddDoctor';
-// import useAuth from './../../../hooks/useAuth';
-// import AdminRoute from './../../Login/AdminRoute/AdminRoute';
+import Payment from '../Payment/Payment';
 
 const drawerWidth = 200;
 
@@ -51,30 +41,20 @@ function Dashboard(props) {
         <div>
             <Toolbar />
             <Divider />
-            <Box style={{textAlign:"start"}}>
-                <Link style={{textDecoration:'none'}} to={`/home`}><Button>home</Button></Link>
-               {!admin && <Link style={{textDecoration:'none'}} to={`${url}/review`}><Button>Review</Button></Link>}
-               {!admin && <Link style={{textDecoration:'none'}} to={`${url}/myOrders`}><Button>My Orders</Button></Link>}
+            <Box style={{textAlign:'start'}} sx={{p:1}}>
+                <Box>
+                    <Link style={{textDecoration:'none'}} to={`/home`}><Button sx={{mb:2}} variant="contained">home</Button></Link><br />
+                    {!admin && <Link  style={{textDecoration:'none'}} to={`${url}/review`}><Button sx={{mb:2}} variant="contained">Review</Button></Link>}
+                    {!admin && <Link style={{textDecoration:'none'}} to={`${url}/myOrders`}><Button sx={{mb:2}} variant="contained">My Orders</Button></Link>}
+                    {!admin && <Link style={{textDecoration:'none'}} to={`${url}/payment`}><Button sx={{mb:2}} variant="contained">Payment</Button></Link>}
+                </Box>
+                {admin && <Box>
+                    <Link style={{textDecoration:'none'}} to={`${url}/mangeAllOrder`}><Button sx={{mb:2}} variant="contained">Mange all Order</Button></Link>
+                    <Link style={{textDecoration:'none'}} to={`${url}/mangeAllProduct`}><Button sx={{mb:2}} variant="contained">Mange all Product</Button></Link>
+                    <Link style={{textDecoration:'none'}} to={`${url}/makeAdmin`}><Button sx={{mb:2}} variant="contained">Make Admin</Button></Link>
+                    <Link style={{textDecoration:'none'}} to={`${url}/addProduct`}><Button  variant="contained">Add Product</Button></Link> <br/>
+                </Box>} 
             </Box>
-             {/* <Link to="/appointment"><Button color="inherit">Appointment</Button></Link>
-            <Link to={`${url}`}><Button color="inherit">Dashboard</Button></Link> */}
-            {admin && <Box>
-                <Link style={{textDecoration:'none'}} to={`${url}/mangeAllOrder`}><Button>Mange all Order</Button></Link>
-                <Link style={{textDecoration:'none'}} to={`${url}/mangeAllProduct`}><Button>Mange all Product</Button></Link>
-               <Link style={{textDecoration:'none'}} to={`${url}/makeAdmin`}><Button>Make Admin</Button></Link>
-                <Link style={{textDecoration:'none'}} to={`${url}/addProduct`}><Button>Add Product</Button></Link> <br />
-            </Box>} 
-
-            <List>
-                {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-                    <ListItem button key={text}>
-                        <ListItemIcon>
-                            {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                        </ListItemIcon>
-                        <ListItemText primary={text} />
-                    </ListItem>
-                ))}
-            </List>
         </div>
     );
 
@@ -156,6 +136,9 @@ function Dashboard(props) {
                     </Route>
                     <Route  path={`${path}/myOrders`}>
                        <MyOrders/>
+                    </Route>
+                    <Route  path={`${path}/payment`}>
+                       <Payment/>
                     </Route>
                     <AdminRoute path={`${path}/makeAdmin`}>
                         <MakeAdmin></MakeAdmin>

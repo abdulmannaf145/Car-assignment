@@ -12,7 +12,7 @@ const Subscribe = () => {
                         <input type="week" name="" id="" />
                     </div>
                     <div className="col">
-                        <img src={logo} alt="" />
+                        <img className="img-fluid" src={logo} alt="" />
                     </div>
                 </div>
             </div>

@@ -44,7 +44,8 @@ const Review = () => {
         if (data.insertedId) {
           window.alert("Review SuccessFull ");
         }
-      });
+      })
+    document.getElementById("Form").reset();;
 
     e.preventDefault();
   };
@@ -63,6 +64,7 @@ const Review = () => {
                 My Review
               </Typography>
               <form
+                id="Form"
                 className="mt-4"
                 sx={{ textAlign: "center" }}
                 onSubmit={handleBookingSubmit}

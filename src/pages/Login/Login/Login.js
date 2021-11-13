@@ -42,7 +42,7 @@ const Login = () => {
                             onChange={handleOnChange}
                             variant="standard" />
 
-                        <Button sx={{ width: '75%', m: 1 }} type="submit" variant="contained">Login</Button>
+                        <Button sx={{ width: '75%', m: 1 }} type="submit" variant="contained">Login</Button><br />
                         <NavLink
                             style={{ textDecoration: 'none' }}
                             to="/register">

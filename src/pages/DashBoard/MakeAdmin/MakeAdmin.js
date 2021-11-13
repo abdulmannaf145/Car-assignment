@@ -31,13 +31,14 @@ const MakeAdmin = () => {
         e.preventDefault()
     }
     return (
-        <div>
-            <h2>Make an Admin</h2>
+        <div className="text-center shadow py-5 rounded mx-auto" style={{width:'70%'}}>
+            <h3>Make an Admin</h3>
             <form onSubmit={handleAdminSubmit}>
                 <TextField
                     sx={{ width: '50%' }}
                     label="Email"
                     type="email"
+                    required
                     onBlur={handleOnBlur}
                     variant="standard" /> <br /> <br />
                 <Button type="submit" variant="contained">Make Admin</Button>

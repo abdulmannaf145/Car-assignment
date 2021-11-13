@@ -11,7 +11,7 @@ const Home = () => {
             <div className="container">
                     <div className="row row-cols-lg-2 row-cols-md-1 row-cols-1 g-3">
                 <div className="col text-muted">
-                    <h1>Welcome to <br />Vehica Car <br /> Dealer</h1>
+                    <h1>Welcome to Vehica Car  Dealer</h1>
                     <button className="btn btn-primary">View Inventory</button>
                 </div>
                 <div className="col">

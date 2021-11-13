@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
+import { Button, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
 
 const MangeAllOrder = () => {
     const [userOrders, setUserOrders] = useState([]);
@@ -44,7 +44,7 @@ const MangeAllOrder = () => {
           alert("Update Successful");
         }
         console.log(data);
-        fetch("https://arcane-plains-61591.herokuapp.com/usersOrders")
+        fetch("https://arcane-plains-61591.herokuapp.com/bookedCar")
           .then((res) => res.json())
           .then((data) => setUserOrders(data));
       });
@@ -76,20 +76,22 @@ const MangeAllOrder = () => {
                         <TableCell align="right">{row.serviceName}</TableCell>
                         <TableCell align="right">${row.servicePrice}</TableCell>
                         <TableCell align="right">
-                          {(row.condition==="shipped")?<button
-                            
-                            className="btn-Car me-3"
-                          >Shipped</button>
+                          {(row.condition==="shipped")?<Button
+                            variant="contained"
+                            sx={{mx:2}}
+                            // className="btn btn-primary me-3"
+                          >Shipped</Button>
                             : <button
                               onClick={()=> handleUpdateUser(row._id)}
                             className="btn-Car me-3"
                           >Pending</button>}
-                            <button
-                            className="btn-Car"
+                          <Button
+                            variant="contained"
+                            // className="btn btn-primary"
                             onClick={()=>handleDeleteUserService(row._id)}
                             >
                                 <i class="fas fa-times"></i>
-                            </button>    
+                            </Button>    
                         </TableCell>
                         </TableRow>
                     ))}
