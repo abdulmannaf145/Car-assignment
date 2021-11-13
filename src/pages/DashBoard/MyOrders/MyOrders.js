@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
+import { Button, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
 import useAuth from '../../../hooks/useAuth'
 
 const MyOrders = () => {
@@ -66,21 +66,25 @@ const MyOrders = () => {
                 <TableCell align="canter">{row.email}</TableCell>
                 <TableCell align="canter">
                   {row.condition ? (
-                    <button className="btn-Car">
+                    <Button
+                      className="btn-Car"
+                      variant="contained"
+                    >
                       <i class="fas fa-check"></i>
                       {row.condition}
-                    </button>
+                    </Button>
                   ) : (
-                    <button className="btn-Car-outline"> pending.. </button>
+                    <Button variant="contained" className="btn-Car-outline"> pending.. </Button>
                   )}
                 </TableCell>
                 <TableCell align="canter">
-                  <button
+                  <Button
+                    variant="contained"
                     onClick={() => handleDeleteUserService(row._id)}
                     className="btn-Car"
                   >
                     <i class="fas fa-times"></i>
-                  </button>
+                  </Button>
                 </TableCell>
               </TableRow>
             ))}

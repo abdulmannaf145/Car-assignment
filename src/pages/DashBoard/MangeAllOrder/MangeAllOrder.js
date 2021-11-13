@@ -81,10 +81,11 @@ const MangeAllOrder = () => {
                             sx={{mx:2}}
                             // className="btn btn-primary me-3"
                           >Shipped</Button>
-                            : <button
+                            : <Button
+                              variant="contained"
                               onClick={()=> handleUpdateUser(row._id)}
                             className="btn-Car me-3"
-                          >Pending</button>}
+                          >Pending</Button>}
                           <Button
                             variant="contained"
                             // className="btn btn-primary"
